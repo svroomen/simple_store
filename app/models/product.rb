@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   validates_presence_of :title, :price, :stock_quantity
 
-  def self.unique_products_count
+  def self.unique_product_count
     distinct.pluck(:title).count
   end
 

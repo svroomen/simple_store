@@ -22,9 +22,9 @@
 = link_to 'New Product', new_product_path
 
 %h1 Stats
-%p= "Number of unique products: #{@distinct_product_count}"
+%p= "Number of unique products: #{@unique_product_count}"
 %p= "Average products price: #{@average_product_price}"
-%p= "Quantity summed over all items: #{@total_quantity_over_all_items}"
+%p= "Quantity summed over all items: #{@total_stock_quantity}"
 
 %h1 Chunky Bacon Area
 - (1..100).each do |position|

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :load_extra_variables, :only => :index
+  before_action :load_product_stats, :only => :index
 
   # GET /products
   # GET /products.json
@@ -72,9 +72,9 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:title, :description, :price, :stock_quantity)
   end
 
-  def load_extra_variables
-    @distinct_product_count = Product.unique_products_count
+  def load_product_stats
+    @unique_product_count = Product.unique_product_count
     @average_product_price = Product.average_product_price
-    @total_quantity_over_all_items = Product.total_stock_quantity
+    @total_stock_quantity = Product.total_stock_quantity
   end
 end
